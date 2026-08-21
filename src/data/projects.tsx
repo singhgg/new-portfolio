@@ -202,7 +202,7 @@ const projects: Project[] = [
     id: "mental-health",
     category: "Personal Project",
     title: "AI Mental Health / Mental Health Support System",
-    src: "/assets/projects-screenshots/portfolio/landing.png",
+    src: "/assets/projects-screenshots/mental-health/image.png",
     screenshots: [],
     skills: { frontend: [], backend: [] },
     live: "#",
