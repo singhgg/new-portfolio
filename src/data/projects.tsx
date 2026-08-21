@@ -274,13 +274,13 @@ const projects: Project[] = [
   },
   {
     id: "solvencia",
-    category: "Client Work",
+    category: "Confidential Client Work",
     title: "Solvencia",
     src: "/assets/projects-screenshots/portfolio/landing.png",
     video: "/assets/projects-screenshots/solvencia/SOLVENCIA VIDEO (1).mp4",
     screenshots: [],
     skills: { frontend: [], backend: [] },
-    live: "https://solvencia.in/",
+    live: "#",
     get content() {
       return (
         <div>
@@ -297,13 +297,13 @@ const projects: Project[] = [
   },
   {
     id: "memories-unlimited",
-    category: "Client Work",
+    category: "Confidential Client Work",
     title: "Memories Unlimited",
     src: "/assets/projects-screenshots/portfolio/landing.png",
     video: "/assets/projects-screenshots/memories-unlimited/MU VIDEO.mp4",
     screenshots: [],
     skills: { frontend: [], backend: [] },
-    live: "https://memoriesunlimited.in/",
+    live: "#",
     get content() {
       return (
         <div>
@@ -320,13 +320,13 @@ const projects: Project[] = [
   },
   {
     id: "marcquity",
-    category: "Client Work",
+    category: "Confidential Client Work",
     title: "Marcquity",
     src: "/assets/projects-screenshots/portfolio/landing.png",
     video: "/assets/projects-screenshots/marcquity/MARC VIDEO.mp4",
     screenshots: [],
     skills: { frontend: [], backend: [] },
-    live: "https://marcquity.com/",
+    live: "#",
     get content() {
       return (
         <div>
