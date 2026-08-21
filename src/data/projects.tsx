@@ -191,6 +191,7 @@ export type Project = {
   category: string;
   title: string;
   src: string;
+  video?: string;
   screenshots: string[];
   skills: { frontend: Skill[]; backend: Skill[] };
   content: React.ReactNode | any;
@@ -252,6 +253,7 @@ const projects: Project[] = [
     category: "Personal Project",
     title: "Animation Website",
     src: "/assets/projects-screenshots/portfolio/landing.png",
+    video: "/assets/projects-screenshots/animation-website/ANIMATION CSS.mp4",
     screenshots: [],
     skills: { frontend: [], backend: [] },
     live: "#",
@@ -275,6 +277,7 @@ const projects: Project[] = [
     category: "Client Work",
     title: "Solvencia",
     src: "/assets/projects-screenshots/portfolio/landing.png",
+    video: "/assets/projects-screenshots/solvencia/SOLVENCIA VIDEO (1).mp4",
     screenshots: [],
     skills: { frontend: [], backend: [] },
     live: "https://solvencia.in/",
@@ -297,6 +300,7 @@ const projects: Project[] = [
     category: "Client Work",
     title: "Memories Unlimited",
     src: "/assets/projects-screenshots/portfolio/landing.png",
+    video: "/assets/projects-screenshots/memories-unlimited/MU VIDEO.mp4",
     screenshots: [],
     skills: { frontend: [], backend: [] },
     live: "https://memoriesunlimited.in/",
@@ -319,6 +323,7 @@ const projects: Project[] = [
     category: "Client Work",
     title: "Marcquity",
     src: "/assets/projects-screenshots/portfolio/landing.png",
+    video: "/assets/projects-screenshots/marcquity/MARC VIDEO.mp4",
     screenshots: [],
     skills: { frontend: [], backend: [] },
     live: "https://marcquity.com/",

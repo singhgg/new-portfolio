@@ -3,7 +3,10 @@ import React from "react";
 import {
   ResponsiveDialog,
   ResponsiveDialogContent,
+  ResponsiveDialogDescription,
+  ResponsiveDialogHeader,
   ResponsiveDialogTrigger,
+  ResponsiveDialogTitle,
 } from "../ui/responsive-dialog";
 import { FloatingDock } from "../ui/floating-dock";
 import { ScrollArea } from "../ui/scroll-area";
@@ -16,6 +19,20 @@ import { SectionHeader } from "./section-header";
 
 import SectionWrapper from "../ui/section-wrapper";
 import ScrollingPreview from "../scrolling-preview";
+import SlideShow from "../slide-show";
+
+const ProjectVideo = ({ src, cover = false }: { src: string; cover?: boolean }) => (
+  <video
+    src={src}
+    autoPlay
+    muted
+    loop
+    playsInline
+    controls={!cover}
+    preload="metadata"
+    className={cover ? "absolute inset-0 h-full w-full object-cover" : "my-2 w-full rounded-lg"}
+  />
+);
 
 const ProjectsSection = () => {
   return (
@@ -41,11 +58,15 @@ const ProjectCard = ({ project }: { project: Project }) => {
           >
             {/* `src` can be any aspect ratio (tall pages pan, normal ones fit);
                 the wallpaper is an optional /assets/backgrounds/<id>.jpg. */}
-            <ScrollingPreview
-              src={project.src}
-              alt={project.title}
-              bg={`/assets/backgrounds/${project.id}.jpg`}
-            />
+            {project.video ? (
+              <ProjectVideo src={project.video} cover />
+            ) : (
+              <ScrollingPreview
+                src={project.src}
+                alt={project.title}
+                bg={`/assets/backgrounds/${project.id}.jpg`}
+              />
+            )}
             <div className="absolute w-full h-24 bottom-0 left-0 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none z-10">
               <div className="flex flex-col h-full items-start justify-end p-4">
                 <div className="text-lg text-left [text-shadow:0_1px_4px_rgba(0,0,0,0.6)]">
@@ -60,6 +81,13 @@ const ProjectCard = ({ project }: { project: Project }) => {
         </ResponsiveDialogTrigger>
 
         <ResponsiveDialogContent className="md:max-w-4xl md:h-[85vh] md:!flex md:flex-col md:overflow-hidden md:p-0 md:gap-0">
+          <ResponsiveDialogHeader className="sr-only">
+            <ResponsiveDialogTitle>{project.title}</ResponsiveDialogTitle>
+            <ResponsiveDialogDescription>
+              Project details and media for {project.title}.
+            </ResponsiveDialogDescription>
+          </ResponsiveDialogHeader>
+
           {/* Sticky header */}
           <div className="shrink-0 border-b border-border bg-background/80 backdrop-blur-sm px-8 py-5">
             <div className="flex items-center justify-between gap-4">
@@ -123,6 +151,9 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
               {/* Divider */}
               <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-10" />
+
+              {project.video && <ProjectVideo src={project.video} />}
+              {project.screenshots.length > 0 && <SlideShow images={project.screenshots} />}
 
               {/* Project content */}
               <motion.div
