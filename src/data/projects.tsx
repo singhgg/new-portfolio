@@ -225,8 +225,11 @@ const projects: Project[] = [
     id: "railway-management",
     category: "Personal Project",
     title: "Railway Management System",
-    src: "/assets/projects-screenshots/portfolio/landing.png",
-    screenshots: [],
+    src: "/assets/projects-screenshots/railway-management/Train 1.jpg",
+    screenshots: [
+      "/assets/projects-screenshots/railway-management/Train 2.jpg",
+      "/assets/projects-screenshots/railway-management/Train 3.jpg",
+    ],
     skills: { frontend: [], backend: [] },
     live: "#",
     github: "https://github.com/GSriCharan12/Railway-Management-System",
