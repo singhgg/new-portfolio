@@ -42,6 +42,11 @@ const ScrollingPreview = ({
   const viewportRef = useRef<HTMLDivElement>(null);
   const [scrollPx, setScrollPx] = useState(0);
   const [bgReady, setBgReady] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -134,11 +139,11 @@ const ScrollingPreview = ({
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage: `url("${src}")`,
+            backgroundImage: mounted ? `url("${src}")` : undefined,
             // Tall pages fill width and pan; normal images cover the frame.
-            backgroundSize: scrolls ? "100% auto" : "cover",
+            backgroundSize: mounted && scrolls ? "100% auto" : "cover",
             backgroundRepeat: "no-repeat",
-            backgroundPosition: scrolls ? "50% 0%" : "center",
+            backgroundPosition: mounted && scrolls ? "50% 0%" : "center",
           }}
           animate={
             animate
